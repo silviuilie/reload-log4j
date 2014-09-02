@@ -7,12 +7,11 @@
     <packaging>jar</packaging>
     <version>0.0.1</version>
     <name>reload-log4j</name>
-    <url>http://maven.apache.org</url>
+    <url>https://github.com/silviuilie/reload-log4j</url>
     <properties>
         <spring.version>3.2.2.RELEASE</spring.version>
     </properties>
     <dependencies>
-
         <!--
             needed to scan classpath for a class name
         -->
@@ -21,7 +20,6 @@
             <artifactId>reflections</artifactId>
             <version>0.9.9-RC1</version>
         </dependency>
-
         <!--
             provided
         -->
@@ -49,7 +47,6 @@
             <version>2.4</version>
             <scope>provided</scope>
         </dependency>
-
         <!--
             unit test dependencies
         -->
@@ -77,7 +74,6 @@
             <version>1.2.16</version>
             <scope>provided</scope>
         </dependency>
-
         <!--
             needed to marshal to JSON
         -->
@@ -86,14 +82,10 @@
             <artifactId>jackson-mapper-asl</artifactId>
             <version>1.9.2</version>
         </dependency>
-
-
     </dependencies>
     <build>
-        <finalName>log4j-level-reloader</finalName>
-
+        <finalName>reload-log4j</finalName>
         <plugins>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -140,7 +132,5 @@
                 </executions>
             </plugin>
         </plugins>
-
     </build>
-
 </project>
