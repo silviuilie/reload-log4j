@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 /**
- * Created by iliesilviu
+ * Created by silviu
  * Date: 13/02/14 / 22:14279
  * <p>
  * spring {@code Controller} for {@link eu.pm.tools.log4j.Log4jUtility}.

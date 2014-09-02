@@ -1,7 +1,7 @@
 package eu.pm.tools.log4j;
 
 /**
- * Created by iliesilviu
+ * Created by silviu
  * Date: 16/02/14 / 00:07538
  * <p>
  * <p/>

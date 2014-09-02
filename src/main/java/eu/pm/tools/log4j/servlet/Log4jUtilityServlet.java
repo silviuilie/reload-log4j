@@ -23,7 +23,7 @@ import static eu.pm.tools.log4j.Log4jUtility.LOG4J_UTILITY_RELOAD;
 import static org.apache.commons.lang.StringUtils.isNotEmpty;
 
 /**
- * Created by iliesilviu
+ * Created by silviu
  * Date: 13/02/14 / 22:14279
  * <p>
  * services {@link eu.pm.tools.log4j.Log4jUtility}.

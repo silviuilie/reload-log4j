@@ -1,7 +1,9 @@
 package eu.pm.tools.log4j;
 
+import org.junit.Test;
+
 /**
- * Created by iliesilviu
+ * Created by silviu
  * Date: 01/03/14 / 22:21562
  * <p/>
  * <p>
@@ -14,4 +16,9 @@ package eu.pm.tools.log4j;
  * @author Silviu Ilie
  */
 public class Log4jUtilityServletTest {
+
+    @Test
+    public void test() {
+
+    }
 }

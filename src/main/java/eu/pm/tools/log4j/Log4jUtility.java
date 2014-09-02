@@ -27,7 +27,7 @@ import static org.reflections.util.ClasspathHelper.forClassLoader;
 import static org.reflections.util.ClasspathHelper.staticClassLoader;
 
 /**
- * Created by iliesilviu
+ * Created by silviu
  * Date: 13/02/14 / 22:14279
  * <p>
  * handles all log4j priority/level change requests

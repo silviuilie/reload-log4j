@@ -3,7 +3,7 @@ package eu.pm.tools.log4j;
 import javax.servlet.http.HttpSession;
 
 /**
- * Created by iliesilviu
+ * Created by silviu
  * Date: 15/02/14 / 16:55944
  * <p>
  *     describes the application that uses the utility (base package name and authorization).

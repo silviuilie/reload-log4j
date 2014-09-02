@@ -3,7 +3,6 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>eu.pm.tools.log4j</groupId>
     <artifactId>reload-log4j</artifactId>
-    <!--<packaging>war</packaging>-->
     <packaging>jar</packaging>
     <version>0.0.1</version>
     <name>reload-log4j</name>
