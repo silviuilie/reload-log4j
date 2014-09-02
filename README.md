@@ -83,7 +83,7 @@ Add the the *.log4j url extension to your DispatcherServlet :
 
 (?) This is needed to enable your DispatcherServlet to serve the utility requests :
 
-- `log4j.log4j` is the "home" of the utility, loads the UI,
+- `reload.log4j` is the "home" of the utility, loads the UI,
 - `log4jFindClass.log4j` used to search classes,
 - `log4jReload.log4j` used to reload level for a specified class.
 
