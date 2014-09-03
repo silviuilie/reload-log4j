@@ -1,5 +1,6 @@
-package eu.pm.tools.log4j;
+package eu.pm.tools.log4j.controller;
 
+import eu.pm.tools.log4j.Log4jApplicationContext;
 import eu.pm.tools.log4j.fragment.Log4jUtilityController;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -90,7 +91,7 @@ public class Log4jUtilityControllerTest {
             log.debug("classes found:" + result);
 
             assertEquals(
-                    "eu.pm.tools.log4j.Log4jUtilityControllerTest",
+                    "eu.pm.tools.log4j.controller.Log4jUtilityControllerTest",
                     result.replaceAll("\\[", "").replaceAll("]", "").replaceAll("\"", "")
             );
         } catch (IOException e) {

@@ -30,7 +30,7 @@ public class Log4jUtilityController extends Log4jUtility {
      *
      * @return
      */
-    @RequestMapping(value = LOG4J_UTILITY_HOME)
+    @RequestMapping(value = LOG4J_UTILITY_HOME_URL)
     public final String log4jChange(HttpSession session, HttpServletRequest request) {
         if (isAuthorized(session)) {
 
@@ -48,7 +48,7 @@ public class Log4jUtilityController extends Log4jUtility {
      * @param name class name fragment
      * @return
      */
-    @RequestMapping(value = LOG4J_UTILITY_FIND_CLASS, method = RequestMethod.POST)
+    @RequestMapping(value = LOG4J_UTILITY_FIND_CLASS_URL, method = RequestMethod.POST)
     @ResponseBody
     public final String log4jFindClass(@RequestParam(value = "name") final String name,
                                        HttpSession session) throws IOException {
@@ -62,7 +62,7 @@ public class Log4jUtilityController extends Log4jUtility {
      * @param priority logging priority
      * @return
      */
-    @RequestMapping(value = LOG4J_UTILITY_RELOAD, method = RequestMethod.POST)
+    @RequestMapping(value = LOG4J_UTILITY_RELOAD_URL, method = RequestMethod.POST)
     @ResponseBody
     public final String setPriority(@RequestParam(value = "target") final String target,
                                     @RequestParam(value = "priority") final String priority,

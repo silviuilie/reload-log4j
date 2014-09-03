@@ -16,9 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 
-import static eu.pm.tools.log4j.Log4jUtility.LOG4J_UTILITY_HOME;
-import static eu.pm.tools.log4j.Log4jUtility.LOG4J_UTILITY_FIND_CLASS;
-import static eu.pm.tools.log4j.Log4jUtility.LOG4J_UTILITY_RELOAD;
+import static eu.pm.tools.log4j.Log4jUtility.LOG4J_UTILITY_HOME_URL;
+import static eu.pm.tools.log4j.Log4jUtility.LOG4J_UTILITY_FIND_CLASS_URL;
+import static eu.pm.tools.log4j.Log4jUtility.LOG4J_UTILITY_RELOAD_URL;
 
 import static org.apache.commons.lang.StringUtils.isNotEmpty;
 
@@ -63,7 +63,7 @@ public class Log4jUtilityServlet extends HttpServlet {
         String requestName = req.getRequestURI();
 
         // when expected URI requested and authorized, go home.
-        if (requestName.contains(LOG4J_UTILITY_HOME)
+        if (requestName.contains(LOG4J_UTILITY_HOME_URL)
                 && log4jUtility.isAuthorized(req.getSession())) {
 
             ServletContext context = getServletContext();
@@ -91,7 +91,7 @@ public class Log4jUtilityServlet extends HttpServlet {
         String requestName = req.getRequestURI();
 
         // when expected URI requested and authorized, find class.
-        if (requestName.contains(LOG4J_UTILITY_FIND_CLASS)
+        if (requestName.contains(LOG4J_UTILITY_FIND_CLASS_URL)
                 && log4jUtility.isAuthorized(req.getSession())) {
             resp.getWriter().write(
                     log4jUtility.log4jFindClass(req.getParameter("name"), req.getSession())
@@ -99,7 +99,7 @@ public class Log4jUtilityServlet extends HttpServlet {
         }
 
         // when expected URI requested and authorized, set priority
-        if (requestName.contains(LOG4J_UTILITY_RELOAD)
+        if (requestName.contains(LOG4J_UTILITY_RELOAD_URL)
                 && log4jUtility.isAuthorized(req.getSession())) {
             resp.getWriter().write(
                     log4jUtility.setPriority(
@@ -170,7 +170,7 @@ public class Log4jUtilityServlet extends HttpServlet {
 
         if (log.isDebugEnabled()) {
             log.debug("=====================================");
-            log.debug("log4j reloader available as /" + Log4jUtility.LOG4J_UTILITY_HOME);
+            log.debug("log4j reloader available as /" + Log4jUtility.LOG4J_UTILITY_HOME_URL);
             log.debug("=====================================");
         }
 
@@ -178,11 +178,20 @@ public class Log4jUtilityServlet extends HttpServlet {
 
     private void copyParameters(HttpServletRequest req) {
         ServletContext ctx = req.getSession().getServletContext();
-        req.setAttribute(Log4jUtility.LOG4J_UTILITY_HOME, ctx.getInitParameter(Log4jUtility.LOG4J_UTILITY_HOME));
-        req.setAttribute(Log4jUtility.LOG4J_UTILITY_FIND_CLASS, ctx.getInitParameter(Log4jUtility.LOG4J_UTILITY_FIND_CLASS));
-        req.setAttribute(Log4jUtility.LOG4J_UTILITY_RELOAD, ctx.getInitParameter(Log4jUtility.LOG4J_UTILITY_RELOAD));
+        req.setAttribute(Log4jUtility.LOG4J_UTILITY_HOME_URL, ctx.getInitParameter(Log4jUtility.LOG4J_UTILITY_HOME_URL));
+        req.setAttribute(Log4jUtility.LOG4J_UTILITY_FIND_CLASS_URL, ctx.getInitParameter(Log4jUtility.LOG4J_UTILITY_FIND_CLASS_URL));
+        req.setAttribute(Log4jUtility.LOG4J_UTILITY_RELOAD_URL, ctx.getInitParameter(Log4jUtility.LOG4J_UTILITY_RELOAD_URL));
     }
 
+
+    /**
+     * used in tests.
+     *
+     * @param log4jUtility {@link Log4jUtility}.
+     */
+    void setLog4jUtility(Log4jUtility log4jUtility) {
+        this.log4jUtility = log4jUtility;
+    }
 
     /**
      * log

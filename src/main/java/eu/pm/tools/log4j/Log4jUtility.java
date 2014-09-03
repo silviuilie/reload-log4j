@@ -45,17 +45,17 @@ public class Log4jUtility {
     /**
      * URI for the 'home' of the utility
      */
-    public final static String LOG4J_UTILITY_HOME = "reload.log4j";
+    public final static String LOG4J_UTILITY_HOME_URL = "reload.log4j";
 
     /**
      * URI for searching a class by name
      */
-    public final static String LOG4J_UTILITY_FIND_CLASS = "log4jFindClass.log4j";
+    public final static String LOG4J_UTILITY_FIND_CLASS_URL = "log4jFindClass.log4j";
 
     /**
      * URI for setting the priority
      */
-    public final static String LOG4J_UTILITY_RELOAD = "log4jReload.log4j";
+    public final static String LOG4J_UTILITY_RELOAD_URL = "log4jReload.log4j";
 
     /**
      * name of the parameters
