@@ -11,7 +11,6 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.reflections.Reflections;
 import org.reflections.scanners.ResourcesScanner;
 import org.reflections.scanners.SubTypesScanner;
-import org.reflections.util.ClasspathHelper;
 import org.reflections.util.ConfigurationBuilder;
 import org.reflections.util.FilterBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +21,7 @@ import java.io.IOException;
 import java.util.*;
 
 import static org.apache.commons.lang.StringUtils.*;
-import static org.reflections.util.ClasspathHelper.contextClassLoader;
-import static org.reflections.util.ClasspathHelper.forClassLoader;
-import static org.reflections.util.ClasspathHelper.staticClassLoader;
+import static org.reflections.util.ClasspathHelper.*;
 
 /**
  * Created by silviu
