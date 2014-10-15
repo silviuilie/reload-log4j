@@ -63,12 +63,7 @@ public class Log4jUtilityServletTest {
 
     @Before
     public void init() throws ServletException {
-        reset(mockLog4jUtility);
-        reset(mockServletConfig);
-        reset(ctx);
-        reset(mockSession);
-        reset(reqMock);
-        reset(respMock);
+        reset(mockLog4jUtility, mockServletConfig, ctx, mockSession, reqMock, respMock);
 
         when(mockServletConfig.getServletContext()).thenReturn(ctx);
 
@@ -145,7 +140,7 @@ public class Log4jUtilityServletTest {
         when(reqMock.getParameter("priority")).thenReturn(priority);
         when(reqMock.getRequestURI()).thenReturn(LOG4J_UTILITY_RELOAD_URL);
         when(mockLog4jUtility.isAuthorized(mockSession)).thenReturn(true);
-        when(mockLog4jUtility.setPriority(className,priority, mockSession)).thenReturn("");
+        when(mockLog4jUtility.setPriority(className, priority, mockSession)).thenReturn("");
         when(respMock.getWriter()).thenReturn(mockWriter);
 
         doAnswer(new Answer() {
