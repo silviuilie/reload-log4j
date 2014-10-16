@@ -93,3 +93,8 @@ If the host application JSPs are not located in the (more or less) standard loca
 view resolver in your spring configuration with the `/WEB-INF/jsp/` prefix.
 Otherwise, no other configuration is required.
 
+
+3. similar projects
+---
+
+[https://github.com/mrsarm/log4jwebtracker](https://github.com/mrsarm/log4jwebtracker) ( Java web tool to setup at runtime the log level of Log4j appenders in an application, and read the log at runtime )
