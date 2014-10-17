@@ -5,6 +5,8 @@ log4j utility
 
 [![Build Status](https://travis-ci.org/silviuilie/reload-log4j.svg?branch=master)](https://travis-ci.org/silviuilie/reload-log4j)
 
+[![Coverage Status](https://coveralls.io/repos/silviuilie/reload-log4j/badge.png)](https://coveralls.io/r/silviuilie/reload-log4j)
+
 
 why to use
 ---
