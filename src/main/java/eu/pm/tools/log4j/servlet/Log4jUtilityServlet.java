@@ -3,6 +3,7 @@ package eu.pm.tools.log4j.servlet;
 
 import eu.pm.tools.log4j.Log4jApplicationContext;
 import eu.pm.tools.log4j.Log4jUtility;
+import eu.pm.tools.log4j.ReloadAuthorization;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -16,10 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 
-import static eu.pm.tools.log4j.Log4jUtility.LOG4J_UTILITY_HOME_URL;
-import static eu.pm.tools.log4j.Log4jUtility.LOG4J_UTILITY_FIND_CLASS_URL;
-import static eu.pm.tools.log4j.Log4jUtility.LOG4J_UTILITY_RELOAD_URL;
-
+import static eu.pm.tools.log4j.Log4jUtility.*;
 import static org.apache.commons.lang.StringUtils.isNotEmpty;
 
 /**
@@ -140,18 +138,16 @@ public class Log4jUtilityServlet extends HttpServlet {
             log.warn("log4j-authorization-class parameter not found, using default");
         }
 
-        Log4jApplicationContext.ReloadAuthorization log4jUtilityAuthorization;
+        ReloadAuthorization log4jUtilityAuthorization;
 
         if (isNotEmpty(authorizationClassName)) {
             try {
 
                 @SuppressWarnings("unchecked")
-                Class<Log4jApplicationContext.ReloadAuthorization> authorizationClass =
-                        (Class<Log4jApplicationContext.ReloadAuthorization>)
-                                Class.forName(authorizationClassName);
+                Class<ReloadAuthorization> authorizationClass = (Class<ReloadAuthorization>)
+                        Class.forName(authorizationClassName);
 
-                Constructor<Log4jApplicationContext.ReloadAuthorization> authClassConstructor =
-                        authorizationClass.getDeclaredConstructor();
+                Constructor<ReloadAuthorization> authClassConstructor = authorizationClass.getDeclaredConstructor();
                 log4jUtilityAuthorization = authClassConstructor.newInstance();
 
             } catch (Throwable e) {
