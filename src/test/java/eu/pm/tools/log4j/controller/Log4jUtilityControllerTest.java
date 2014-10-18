@@ -75,6 +75,31 @@ public class Log4jUtilityControllerTest {
     }
 
     @Test
+    public void resetPriority() {
+        try {
+
+            final String result = log4jUtilityController.setPriority("Log4jUtilityControllerTest", "restore", mockHttpSession);
+            assertTrue(isNotEmpty(result));
+
+            final ObjectMapper mapper = new ObjectMapper();
+            final JsonFactory factory = mapper.getJsonFactory(); // since 2.1 use mapper.getFactory() instead
+            final JsonParser jp = factory.createJsonParser(result);
+            final JsonNode resultJSON = mapper.readTree(jp);
+
+            Iterator<String> fields = resultJSON.getFieldNames();
+            while (fields.hasNext()) {
+                final String key = fields.next();
+                if ("type".equalsIgnoreCase(key)) {
+                    assertEquals("SUCCESS", resultJSON.get(key).toString().replaceAll("\"", ""));
+                }
+            }
+
+        } catch (IOException e) {
+            fail();
+        }
+    }
+
+    @Test
     public void log4jChange() {
 
         final String viewName = log4jUtilityController.log4jChange(mockHttpSession, mockHttpRequest);

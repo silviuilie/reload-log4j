@@ -161,6 +161,38 @@ public class Log4jUtilityServletTest {
         verify(respMock, times(1)).getWriter();
     }
 
+    @Test
+    public void doPostReloadResetPriority() throws ServletException, IOException {
+        String className = "ToFindBy";
+        String priority = "restore";
+        PrintWriter mockWriter = mock(PrintWriter.class);
+
+        when(reqMock.getSession()).thenReturn(mockSession);
+        when(reqMock.getParameter("target")).thenReturn(className);
+        when(reqMock.getParameter("priority")).thenReturn(priority);
+        when(reqMock.getRequestURI()).thenReturn(LOG4J_UTILITY_RELOAD_URL);
+        when(mockLog4jUtility.isAuthorized(mockSession)).thenReturn(true);
+        when(mockLog4jUtility.setPriority(className, priority, mockSession)).thenReturn("");
+        when(respMock.getWriter()).thenReturn(mockWriter);
+
+        doAnswer(new Answer() {
+            @Override
+            public Object answer(InvocationOnMock invocation) throws Throwable {
+                return null;
+            }
+        }).when(mockWriter).write("");
+
+        servlet.doPost(reqMock, respMock);
+
+        verify(mockWriter, times(1)).write("");
+        verify(reqMock, times(2)).getSession();
+        verify(reqMock, times(1)).getParameter("target");
+        verify(reqMock, times(1)).getParameter("priority");
+        verify(reqMock, times(1)).getRequestURI();
+        verify(mockLog4jUtility, times(1)).isAuthorized(mockSession);
+        verify(respMock, times(1)).getWriter();
+    }
+
 
     @Test
     public void doGetNotAuthorized() throws ServletException, IOException {
