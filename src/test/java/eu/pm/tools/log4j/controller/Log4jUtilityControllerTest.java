@@ -3,6 +3,7 @@ package eu.pm.tools.log4j.controller;
 import eu.pm.tools.log4j.Log4jApplicationContext;
 import eu.pm.tools.log4j.ReloadAuthorization;
 import eu.pm.tools.log4j.fragment.Log4jUtilityController;
+import org.apache.commons.lang.math.RandomUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.codehaus.jackson.JsonFactory;
@@ -88,7 +89,41 @@ public class Log4jUtilityControllerTest {
 
             when(mockReloadAuthorization.authorize(mockHttpSession)).thenReturn(true);
 
+            // set initial priority
+            log4jUtilityController.setPriority("Log4jUtilityControllerTest", "DEBUG", mockHttpSession);
             final String result = log4jUtilityController.setPriority("Log4jUtilityControllerTest", "restore", mockHttpSession);
+            assertTrue(isNotEmpty(result));
+
+            final ObjectMapper mapper = new ObjectMapper();
+            final JsonFactory factory = mapper.getJsonFactory(); // since 2.1 use mapper.getFactory() instead
+            final JsonParser jp = factory.createJsonParser(result);
+            final JsonNode resultJSON = mapper.readTree(jp);
+
+            Iterator<String> fields = resultJSON.getFieldNames();
+            while (fields.hasNext()) {
+                final String key = fields.next();
+                if ("type".equalsIgnoreCase(key)) {
+                    assertEquals("SUCCESS", resultJSON.get(key).toString().replaceAll("\"", ""));
+                }
+            }
+
+            verify(mockReloadAuthorization, times(2)).authorize(mockHttpSession);
+
+        } catch (IOException e) {
+            fail();
+        }
+    }
+
+    @Test
+    public void resetPriorityForNeverChangedTarget() {
+        try {
+
+            when(mockReloadAuthorization.authorize(mockHttpSession)).thenReturn(true);
+
+            final String result = log4jUtilityController.setPriority("Log4jUtilityControllerTest"
+                    + RandomUtils.nextInt(), "restore", mockHttpSession
+            );
+
             assertTrue(isNotEmpty(result));
 
             final ObjectMapper mapper = new ObjectMapper();
@@ -118,7 +153,7 @@ public class Log4jUtilityControllerTest {
             when(mockReloadAuthorization.authorize(mockHttpSession)).thenReturn(false);
 
             log4jUtilityController.setPriority("Log4jUtilityControllerTest", "restore", mockHttpSession);
-         } catch (Exception e) {
+        } catch (Exception e) {
             assertTrue(e instanceof IllegalStateException);
         }
     }
