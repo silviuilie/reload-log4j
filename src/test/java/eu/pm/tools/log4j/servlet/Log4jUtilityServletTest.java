@@ -2,6 +2,7 @@ package eu.pm.tools.log4j.servlet;
 
 import eu.pm.tools.log4j.Log4jApplicationContext;
 import eu.pm.tools.log4j.Log4jUtility;
+import eu.pm.tools.log4j.ReloadAuthorization;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -53,7 +54,7 @@ public class Log4jUtilityServletTest {
 
     }
 
-    Log4jApplicationContext.ReloadAuthorization mockAuth =  Log4jApplicationContext.DEFAULT_AUTHORIZATION;
+    ReloadAuthorization mockAuth =  Log4jApplicationContext.DEFAULT_AUTHORIZATION;
 
     @Before
     public void init() throws ServletException {

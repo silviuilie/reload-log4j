@@ -6,4 +6,4 @@ install:
   - mvn clean
 
 after_success:
-  -  mvn cobertura:cobertura coveralls:cobertura -Dproject.repoToken=env.project.repoToken
+  -  mvn cobertura:cobertura coveralls:cobertura
