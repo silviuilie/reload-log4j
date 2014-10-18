@@ -53,13 +53,7 @@ public class Log4jUtilityServletTest {
 
     }
 
-    Log4jApplicationContext.ReloadAuthorization mockAuth = new Log4jApplicationContext.ReloadAuthorization() {
-        @Override
-        public boolean authorize(HttpSession session) {
-            return true;
-        }
-    };
-
+    Log4jApplicationContext.ReloadAuthorization mockAuth =  Log4jApplicationContext.DEFAULT_AUTHORIZATION;
 
     @Before
     public void init() throws ServletException {
@@ -76,10 +70,10 @@ public class Log4jUtilityServletTest {
         when(ctx.getInitParameter(Log4jUtility.LOG4J_UTILITY_JSP_LOCATION_ATTR_NAME))
                 .thenReturn(Log4jUtility.LOG4J_UTILITY_JSP_LOCATION_ATTR_NAME + ".test");
 
-/*
+
         when(ctx.getInitParameter(Log4jUtility.LOG4J_UTILITY_AUTH_ATTR_NAME))
                 .thenReturn(mockAuth.getClass().getSimpleName());
-*/
+
 
         when(reqMock.getSession()).thenReturn(mockSession);
         when(reqMock.getRequestURI()).thenReturn(Log4jUtility.LOG4J_UTILITY_HOME_URL);
