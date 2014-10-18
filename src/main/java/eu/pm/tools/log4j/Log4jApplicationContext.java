@@ -35,14 +35,6 @@ public class Log4jApplicationContext {
         this.utilityAuthorization = utilityAuthorization;
     }
 
-    /**
-     * default.
-     */
-    private Log4jApplicationContext() {
-        //
-    }
-
-
     public String getPackageName() {
         return packageName;
     }

@@ -27,16 +27,4 @@ public class Log4jConfigResetResponse {
         this.type = result;
     }
 
-    public Type getType() {
-        return type;
-    }
-
-    String getMessage() {
-        return message;
-    }
-
-    void setMessage(String message) {
-        this.message = message;
-    }
-
 }

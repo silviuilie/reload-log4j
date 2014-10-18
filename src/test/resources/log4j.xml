@@ -19,11 +19,7 @@
     </appender>
 
     <logger name="eu.pm">
-        <level value="debug" />
-    </logger>
-
-    <logger name="org.reflections">
-        <level value="debug" />
+        <level value="DEBUG" />
     </logger>
 
     <root>
