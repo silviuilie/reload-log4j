@@ -67,7 +67,6 @@
                 $(".ui-button")
                         .button()
                         .click(function (event) {
-                            console.log('event.currentTarget.id = ', event.currentTarget.id)
                             if ($('#classNameAutocomplete').val() == "") {
                                 showError("specify a class name / fragment");
                                 $('#classNameAutocomplete').focus();

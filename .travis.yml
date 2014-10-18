@@ -3,4 +3,4 @@ jdk:
   - openjdk6
 
 after_success:
-  - mvn jacoco:report coveralls:jacoco
+  - mvn clean cobertura:cobertura org.eluder.coveralls:coveralls-maven-plugin:report
