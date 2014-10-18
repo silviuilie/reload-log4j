@@ -2,7 +2,6 @@ package eu.pm.tools.log4j;
 
 import org.junit.Test;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import static junit.framework.Assert.assertTrue;
