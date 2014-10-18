@@ -6,4 +6,5 @@ install:
   - mvn clean
 
 after_success:
+#  - mvn clean test jacoco:report coveralls:jacoco
   - mvn cobertura:cobertura org.eluder.coveralls:coveralls-maven-plugin:report
