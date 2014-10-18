@@ -112,6 +112,18 @@ public class Log4jUtilityControllerTest {
     }
 
     @Test
+    public void resetPriorityNotAuthorized() {
+        try {
+
+            when(mockReloadAuthorization.authorize(mockHttpSession)).thenReturn(false);
+
+            log4jUtilityController.setPriority("Log4jUtilityControllerTest", "restore", mockHttpSession);
+         } catch (Exception e) {
+            assertTrue(e instanceof IllegalStateException);
+        }
+    }
+
+    @Test
     public void log4jChange() {
 
         when(mockReloadAuthorization.authorize(mockHttpSession)).thenReturn(true);
@@ -133,7 +145,7 @@ public class Log4jUtilityControllerTest {
         try {
             viewName = log4jUtilityController.log4jChange(mockHttpSession, mockHttpRequest);
         } catch (Exception e) {
-            assert(e instanceof IllegalStateException);
+            assert (e instanceof IllegalStateException);
         }
 
         verify(mockReloadAuthorization).authorize(mockHttpSession);
@@ -159,6 +171,18 @@ public class Log4jUtilityControllerTest {
             );
         } catch (IOException e) {
             fail();
+        }
+
+    }
+
+    @Test
+    public void log4jFindClassNotAuthorized() {
+
+        when(mockReloadAuthorization.authorize(mockHttpSession)).thenReturn(false);
+        try {
+            log4jUtilityController.log4jFindClass("Log4jUtilityControllerTest", mockHttpSession);
+        } catch (Exception e) {
+            assertTrue(e instanceof IllegalStateException);
         }
 
     }
