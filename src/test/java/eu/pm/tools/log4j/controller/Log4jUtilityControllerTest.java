@@ -1,6 +1,7 @@
 package eu.pm.tools.log4j.controller;
 
 import eu.pm.tools.log4j.Log4jApplicationContext;
+import eu.pm.tools.log4j.ReloadAuthorization;
 import eu.pm.tools.log4j.fragment.Log4jUtilityController;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -20,7 +21,7 @@ import java.util.Iterator;
 
 import static junit.framework.Assert.*;
 import static org.apache.commons.lang.StringUtils.isNotEmpty;
-import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.*;
 
 /**
  * Created by silviu
@@ -40,18 +41,23 @@ public class Log4jUtilityControllerTest {
     private Log4jUtilityController log4jUtilityController = new Log4jUtilityController();
     private HttpSession mockHttpSession = mock(HttpSession.class);
     private HttpServletRequest mockHttpRequest = mock(HttpServletRequest.class);
+    private ReloadAuthorization mockReloadAuthorization = mock(ReloadAuthorization.class);
 
     @Before
     public void init() {
         log4jUtilityController = new Log4jUtilityController();
         log4jUtilityController.setApplicationContext(
-                new Log4jApplicationContext("eu", Log4jApplicationContext.DEFAULT_AUTHORIZATION)
+                new Log4jApplicationContext("eu", mockReloadAuthorization)
         );
+
+        reset(mockReloadAuthorization, mockHttpRequest, mockHttpSession);
     }
 
     @Test
     public void setPriority() {
         try {
+
+            when(mockReloadAuthorization.authorize(mockHttpSession)).thenReturn(true);
 
             final String result = log4jUtilityController.setPriority("Log4jUtilityControllerTest", "DEBUG", mockHttpSession);
             assertTrue(isNotEmpty(result));
@@ -69,6 +75,8 @@ public class Log4jUtilityControllerTest {
                 }
             }
 
+            verify(mockReloadAuthorization).authorize(mockHttpSession);
+
         } catch (IOException e) {
             fail();
         }
@@ -77,6 +85,8 @@ public class Log4jUtilityControllerTest {
     @Test
     public void resetPriority() {
         try {
+
+            when(mockReloadAuthorization.authorize(mockHttpSession)).thenReturn(true);
 
             final String result = log4jUtilityController.setPriority("Log4jUtilityControllerTest", "restore", mockHttpSession);
             assertTrue(isNotEmpty(result));
@@ -94,6 +104,8 @@ public class Log4jUtilityControllerTest {
                 }
             }
 
+            verify(mockReloadAuthorization).authorize(mockHttpSession);
+
         } catch (IOException e) {
             fail();
         }
@@ -102,18 +114,44 @@ public class Log4jUtilityControllerTest {
     @Test
     public void log4jChange() {
 
+        when(mockReloadAuthorization.authorize(mockHttpSession)).thenReturn(true);
+
         final String viewName = log4jUtilityController.log4jChange(mockHttpSession, mockHttpRequest);
+
+        verify(mockReloadAuthorization).authorize(mockHttpSession);
+
         assertNotNull(viewName);
+
+    }
+
+
+    @Test
+    public void log4jChangeNotAuthorized() {
+        when(mockReloadAuthorization.authorize(mockHttpSession)).thenReturn(false);
+
+        String viewName = null;
+        try {
+            viewName = log4jUtilityController.log4jChange(mockHttpSession, mockHttpRequest);
+        } catch (Exception e) {
+            assert(e instanceof IllegalStateException);
+        }
+
+        verify(mockReloadAuthorization).authorize(mockHttpSession);
+
+        assertNull(viewName);
 
     }
 
     @Test
     public void log4jFindClass() {
 
+        when(mockReloadAuthorization.authorize(mockHttpSession)).thenReturn(true);
         try {
             final String result = log4jUtilityController.log4jFindClass("Log4jUtilityControllerTest", mockHttpSession);
 
             log.debug("classes found:" + result);
+
+            verify(mockReloadAuthorization).authorize(mockHttpSession);
 
             assertEquals(
                     "eu.pm.tools.log4j.controller.Log4jUtilityControllerTest",

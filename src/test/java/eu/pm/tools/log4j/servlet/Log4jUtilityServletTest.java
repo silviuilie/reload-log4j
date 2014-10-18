@@ -54,11 +54,11 @@ public class Log4jUtilityServletTest {
 
     }
 
-    ReloadAuthorization mockAuth =  Log4jApplicationContext.DEFAULT_AUTHORIZATION;
+    ReloadAuthorization mockAuth =  mock(ReloadAuthorization.class);
 
     @Before
     public void init() throws ServletException {
-        reset(mockLog4jUtility, mockServletConfig, ctx, mockSession, reqMock, respMock);
+        reset(mockAuth, mockLog4jUtility, mockServletConfig, ctx, mockSession, reqMock, respMock);
 
         when(mockServletConfig.getServletContext()).thenReturn(ctx);
 
@@ -192,9 +192,12 @@ public class Log4jUtilityServletTest {
     @Test
     public void doGetNotAuthorized() throws ServletException, IOException {
 
+        when(mockLog4jUtility.isAuthorized(mockSession)).thenReturn(false);
+
         servlet.doGet(reqMock, respMock);
 
         verify(mockLog4jUtility, times(1)).isAuthorized(mockSession);
+
         verify(respMock, times(1)).sendRedirect(null);
     }
 

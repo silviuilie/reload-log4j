@@ -14,8 +14,10 @@ import javax.servlet.http.HttpSession;
  * @author Silviu Ilie
  */
 public class DefaultLog4jUtilityAuthorization implements ReloadAuthorization {
+
     @Override
     public boolean authorize(HttpSession session) {
         return true;
     }
+
 }
