@@ -2,5 +2,8 @@ language: java
 jdk:
   - openjdk6
 
+install:
+  - mvn clean
+
 after_success:
-  - mvn clean cobertura:cobertura org.eluder.coveralls:coveralls-maven-plugin:report
+  - mvn cobertura:cobertura org.eluder.coveralls:coveralls-maven-plugin:report
