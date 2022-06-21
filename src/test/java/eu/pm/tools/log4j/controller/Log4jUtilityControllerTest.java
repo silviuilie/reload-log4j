@@ -54,18 +54,19 @@ public class Log4jUtilityControllerTest {
         reset(mockReloadAuthorization, mockHttpRequest, mockHttpSession);
     }
 
-    @Test @Ignore(value = "todo: fix :\n" +
-            ".." +
-            "ClassNotFoundException: ReloadAuthorization$MockitoMock$cdcytPrq\n" +
-            ".." +
-            "    at org.apache.maven.surefire.booter.IsolatedClassLoader.loadClass(IsolatedClassLoader.java:97)\n")
-    public void setPriority() {
+    /**
+     * fails with Apache Maven 3.8.5 / 3.6.3 (jdk1.8.0_241).
+     * succeeds in
+     * ¶
+     */
+    @Test public void setPriority() {
         try {
 
             when(mockReloadAuthorization.authorize(mockHttpSession)).thenReturn(true);
 
             final String result = log4jUtilityController.setPriority("Log4jUtilityControllerTest", "DEBUG", mockHttpSession);
             assertTrue(isNotEmpty(result));
+            System.out.println("result = " + result);
 
             final ObjectMapper mapper = new ObjectMapper();
             final JsonFactory factory = mapper.getJsonFactory(); // since 2.1 use mapper.getFactory() instead
