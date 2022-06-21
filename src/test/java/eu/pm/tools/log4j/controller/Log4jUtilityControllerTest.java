@@ -88,6 +88,10 @@ public class Log4jUtilityControllerTest {
         }
     }
 
+    /**
+     * fails with spring-jcl (5.3)
+     *  see https://github.com/spring-projects/spring-framework/issues/20611
+     */
     @Test
     public void resetPriority() {
         try {

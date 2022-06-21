@@ -62,7 +62,6 @@ public class Log4jUtilityServletTest {
         }
     }
 
-//    ReloadAuthorization realAuthorization = authorized -> true;
     ReloadAuthorization realAuthorization = mock(ReloadAuthorization.class);
 
     @Before
