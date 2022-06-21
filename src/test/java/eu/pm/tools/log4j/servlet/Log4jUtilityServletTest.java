@@ -1,6 +1,5 @@
 package eu.pm.tools.log4j.servlet;
 
-import eu.pm.tools.log4j.Log4jApplicationContext;
 import eu.pm.tools.log4j.Log4jUtility;
 import eu.pm.tools.log4j.ReloadAuthorization;
 import org.junit.After;
@@ -16,7 +15,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -54,11 +52,22 @@ public class Log4jUtilityServletTest {
 
     }
 
-    ReloadAuthorization mockAuth =  mock(ReloadAuthorization.class);
+    Class target;
+
+    {
+        try {
+            target = Class.forName(ReloadAuthorization.class.getName());
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+//    ReloadAuthorization realAuthorization = authorized -> true;
+    ReloadAuthorization realAuthorization = mock(ReloadAuthorization.class);
 
     @Before
     public void init() throws ServletException {
-        reset(mockAuth, mockLog4jUtility, mockServletConfig, ctx, mockSession, reqMock, respMock);
+        reset(realAuthorization, mockLog4jUtility, mockServletConfig, ctx, mockSession, reqMock, respMock);
 
         when(mockServletConfig.getServletContext()).thenReturn(ctx);
 
@@ -73,7 +82,7 @@ public class Log4jUtilityServletTest {
 
 
         when(ctx.getInitParameter(Log4jUtility.LOG4J_UTILITY_AUTH_ATTR_NAME))
-                .thenReturn(mockAuth.getClass().getSimpleName());
+                .thenReturn(realAuthorization.getClass().getSimpleName());
 
 
         when(reqMock.getSession()).thenReturn(mockSession);

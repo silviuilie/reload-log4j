@@ -8,9 +8,11 @@
     <name>reload-log4j</name>
     <url>https://github.com/silviuilie/reload-log4j</url>
     <properties>
-        <spring.version>4.1.1.RELEASE</spring.version>
+        <spring.version>5.3.21</spring.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <log4j.reload.repoToken>${project.repoToken}</log4j.reload.repoToken>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
     </properties>
     <dependencies>
         <!--
@@ -47,6 +49,11 @@
             <artifactId>commons-lang</artifactId>
             <version>2.6</version>
         </dependency>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.1</version>
+        </dependency>
         <!--
             unit test dependencies
         -->
@@ -58,7 +65,7 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>1.10.8</version>
+            <version>4.6.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>

@@ -11,16 +11,13 @@ log4j utility
 
 
 why to use
----
-
-if you need to change Log4j level/priority using a simple UI, while the your webapp is running
-
-
-how to use
 ===
 
-1. as a Servlet
----
+if you need to change Log4j level/priority using a simple UI, while the your webapp is running
+ 
+
+use it as a Servlet
+===
 
 in the deployment descriptor of your application the following context parameters must be used to configure the servlet :
 
@@ -34,8 +31,8 @@ probably the Servlet, rather than Controller configuration should be used since 
 
 the utility is available by default at `<context>/reload.log4j`. see `src/main/resources/META-INF/web-fragment.xml` for details.
 
-2. as a spring Controller
----
+use it as Spring Controller
+===
   create a bean for Log4jApplicationContext to describe the *host* application :
 
 * package to be scanned and
@@ -100,7 +97,7 @@ view resolver in your spring configuration with the `/WEB-INF/jsp/` prefix.
 Otherwise, no other configuration is required.
 
 
-3. similar projects
----
+similar projects
+===
 
 [https://github.com/mrsarm/log4jwebtracker](https://github.com/mrsarm/log4jwebtracker) ( Java web tool to setup at runtime the log level of Log4j appenders in an application, and read the log at runtime )
