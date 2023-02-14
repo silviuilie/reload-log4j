@@ -12,7 +12,7 @@ log4j utility
 [![Dependency Status](https://www.versioneye.com/user/projects/54436bde53acfab90700001c/badge.svg?style=flat)](https://www.versioneye.com/user/projects/54436bde53acfab90700001c)
 
 
-why to use
+why  
 ===
 
 if you need to change Log4j level/priority using a simple UI, while the your webapp is running
