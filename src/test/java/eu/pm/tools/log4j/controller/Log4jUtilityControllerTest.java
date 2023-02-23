@@ -1,22 +1,20 @@
 package eu.pm.tools.log4j.controller;
 
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import eu.pm.tools.log4j.Log4jApplicationContext;
 import eu.pm.tools.log4j.ReloadAuthorization;
 import eu.pm.tools.log4j.fragment.Log4jUtilityController;
 import org.apache.commons.lang.math.RandomUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.codehaus.jackson.JsonFactory;
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.JsonParser;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 import java.io.IOException;
 import java.util.Iterator;
 
@@ -28,9 +26,6 @@ import static org.mockito.Mockito.*;
  * Created by silviu
  * Date: 01/03/14 / 22:25389
  * <p/>
- * <p>
- * TODO :comment me!
- * </p>
  * <p/>
  * <br/>
  * log4j-level-reloader|eu.pm.tools.log4j
@@ -73,7 +68,7 @@ public class Log4jUtilityControllerTest {
             final JsonParser jp = factory.createJsonParser(result);
             final JsonNode resultJSON = mapper.readTree(jp);
 
-            Iterator<String> fields = resultJSON.getFieldNames();
+            Iterator<String> fields = resultJSON.fieldNames();
             while (fields.hasNext()) {
                 final String key = fields.next();
                 if ("type".equalsIgnoreCase(key)) {
@@ -108,7 +103,7 @@ public class Log4jUtilityControllerTest {
             final JsonParser jp = factory.createJsonParser(result);
             final JsonNode resultJSON = mapper.readTree(jp);
 
-            Iterator<String> fields = resultJSON.getFieldNames();
+            Iterator<String> fields = resultJSON.fieldNames();
             while (fields.hasNext()) {
                 final String key = fields.next();
                 if ("type".equalsIgnoreCase(key)) {
@@ -140,7 +135,7 @@ public class Log4jUtilityControllerTest {
             final JsonParser jp = factory.createJsonParser(result);
             final JsonNode resultJSON = mapper.readTree(jp);
 
-            Iterator<String> fields = resultJSON.getFieldNames();
+            Iterator<String> fields = resultJSON.fieldNames();
             while (fields.hasNext()) {
                 final String key = fields.next();
                 if ("type".equalsIgnoreCase(key)) {
