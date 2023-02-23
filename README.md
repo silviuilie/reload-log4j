@@ -1,8 +1,8 @@
-log4j 1.2.* reloader
+log4j 1.2.x reloader
 ==============
 
 
-log4j utility
+log4j 1.2.x utility
 
 
 [![Build Status](https://travis-ci.org/silviuilie/reload-log4j.svg?branch=master)](https://travis-ci.org/silviuilie/reload-log4j)
@@ -15,7 +15,7 @@ log4j utility
 why  
 ===
 
-if you need to change Log4j level/priority using a simple UI, while the your webapp is running
+if you need to change Log4j 1.2.x level/priority using a simple UI, while the your webapp is running
  
 
 use it as a Servlet
