@@ -1,4 +1,4 @@
-log4j 1 reloader
+log4j 1.2.* reloader
 ==============
 
 
