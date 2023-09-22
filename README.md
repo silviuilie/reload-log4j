@@ -3,20 +3,6 @@ log4j 1.2.x reloader
 log4j 1.2.x utility 
                  
  ![Build Status](https://github.com/silviuilie/reload-log4j/actions/workflows/maven.yml/badge.svg)
-
-
-
- ---
- 
-![Build-x Status-u](https://github.com/silviuilie/reload-log4j/actions/workflows/main.yml/badge.svg)
-
-example 
----
-![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
-
----
-
- ![Build Status](https://github.com/silviuilie/reload-log4j/actions/workflows/maven.yml/badge.svg)
  [![Build Status](https://travis-ci.org/silviuilie/reload-log4j.svg?branch=master)](https://travis-ci.org/silviuilie/reload-log4j)
  [![Coverage Status](https://coveralls.io/repos/silviuilie/reload-log4j/badge.png?branch=master)](https://coveralls.io/r/silviuilie/reload-log4j?branch=master) [![Dependency Status](https://www.versioneye.com/user/projects/54436bde53acfab90700001c/badge.svg?style=flat)](https://www.versioneye.com/user/projects/54436bde53acfab90700001c)
 
