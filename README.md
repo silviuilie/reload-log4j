@@ -1,8 +1,7 @@
 log4j 1.2.x reloader
 ==============
-log4j 1.2.x utility
-
-
+log4j 1.2.x utility 
+                 
  ![Build Status](https://github.com/silviuilie/reload-log4j/actions/workflows/main.yml/badge.svg)
 
 example 
