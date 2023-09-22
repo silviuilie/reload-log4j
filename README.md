@@ -5,6 +5,8 @@ log4j 1.2.x utility
 
  ![Build Status](https://github.com/silviuilie/reload-log4j/actions/workflows/main.yml/badge.svg)
 
+example 
+---
 ![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
 
 ---
