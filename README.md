@@ -10,13 +10,13 @@ log4j 1.2.x utility
  [![Build Status](https://travis-ci.org/silviuilie/reload-log4j.svg?branch=master)](https://travis-ci.org/silviuilie/reload-log4j)
  
 why  
-===
+=
 
 if you need to change Log4j 1.2.x level/priority using a simple UI, while the your webapp is running
  
 
 use it as a Servlet
-===
+=
 
 in the deployment descriptor of your application the following context parameters must be used to configure the servlet :
 
@@ -31,7 +31,8 @@ probably the Servlet, rather than Controller configuration should be used since 
 the utility is available by default at `<context>/reload.log4j`. see `src/main/resources/META-INF/web-fragment.xml` for details.
 
 use it as Spring Controller
-===
+=
+
   create a bean for Log4jApplicationContext to describe the *host* application :
 
 * package to be scanned and
@@ -99,4 +100,4 @@ Otherwise, no other configuration is required.
 similar projects
 =
 
-[https://github.com/mrsarm/log4jwebtracker](https://github.com/mrsarm/log4jwebtracker) (Java web tool to setup at runtime the log level of Log4j appenders in an application, and read the log at runtime )
+[https://github.com/mrsarm/log4jwebtracker](https://github.com/mrsarm/log4jwebtracker) (Java web tool to setup at runtime the log level of Log4j appenders in an application, and read the log at runtime)
