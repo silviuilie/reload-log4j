@@ -97,6 +97,6 @@ Otherwise, no other configuration is required.
 
 
 similar projects
-===
+=
 
-[https://github.com/mrsarm/log4jwebtracker](https://github.com/mrsarm/log4jwebtracker) ( Java web tool to setup at runtime the log level of Log4j appenders in an application, and read the log at runtime )
+[https://github.com/mrsarm/log4jwebtracker](https://github.com/mrsarm/log4jwebtracker) (Java web tool to setup at runtime the log level of Log4j appenders in an application, and read the log at runtime )
