@@ -107,6 +107,7 @@
                 <configuration>
                     <forkCount>0</forkCount>
                     <reuseForks>false</reuseForks>
+                    <argLine>-XX:-UseSplitVerifier ${jacoco.agent.argLine}</argLine>
                 </configuration>
                 <executions>
                     <execution>
@@ -160,6 +161,9 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.6</version>
+                <configuration>
+                    <propertyName>jacoco.agent.argLine</propertyName>
+                </configuration>
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
