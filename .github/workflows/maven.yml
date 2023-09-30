@@ -32,7 +32,7 @@ jobs:
 
     - name: Test
       env:
-        coveralls.project.token: ${{ secrets.PROJECTREPOTOKEN }}
+        coveralls.project.token: ${{ variables.test }}
       run: mvn jacoco:report cobertura:cobertura coveralls:report --batch-mode -Dmaven.test.failure.ignore=true test
         
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
