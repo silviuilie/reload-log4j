@@ -108,8 +108,8 @@
                 <configuration>
 <!--                    <forkCount>0</forkCount>-->
 <!--                    <reuseForks>false</reuseForks>-->
-                    <argLine>-XX:-UseSplitVerifier</argLine>
-<!--                    <argLine>-XX:-UseSplitVerifier ${jacoco.agent.argLine}</argLine>-->
+<!--                    <argLine>-XX:-UseSplitVerifier</argLine>-->
+                    <argLine>@{argLine} -XX:-UseSplitVerifier</argLine>
                 </configuration>
                 <executions>
                     <execution>
