@@ -1,4 +1,4 @@
-# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
+v# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
 
 # This workflow uses actions that are not certified by GitHub.
@@ -32,7 +32,7 @@ jobs:
 
     - name: Test
       env:
-        coveralls.project.token: ${{ variables.test }}
+        coveralls.project.token: ${{ env.test }}
       run: mvn jacoco:report cobertura:cobertura coveralls:report --batch-mode -Dmaven.test.failure.ignore=true test
         
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
