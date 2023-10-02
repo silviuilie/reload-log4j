@@ -34,7 +34,7 @@ jobs:
       env:
         coveralls.project.token: ${{ secrets.PROJECTREPOTOKEN }}
       # run: mvn -e jacoco:report cobertura:cobertura coveralls:report --batch-mode -Dmaven.test.failure.ignore=true test
-      run: mvn clean verify
+      run: -X mvn clean verify
         
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
