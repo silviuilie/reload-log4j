@@ -143,6 +143,9 @@ public class Log4jUtilityServlet extends HttpServlet {
         if (isNotEmpty(authorizationClassName)) {
             try {
 
+                log.trace("isNotEmpty ? " + authorizationClassName);
+                System.out.println("isNotEmpty ? " + authorizationClassName);
+
                 @SuppressWarnings("unchecked")
                 Class<ReloadAuthorization> authorizationClass = (Class<ReloadAuthorization>)
                         Class.forName(authorizationClassName);

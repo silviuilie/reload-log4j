@@ -1,11 +1,14 @@
 package eu.pm.tools.log4j.servlet;
 
+import eu.pm.tools.log4j.DefaultLog4jUtilityAuthorization;
 import eu.pm.tools.log4j.Log4jUtility;
 import eu.pm.tools.log4j.ReloadAuthorization;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mockito;
 import org.mockito.invocation.InvocationOnMock;
+import org.mockito.mock.MockCreationSettings;
 import org.mockito.stubbing.Answer;
 
 import javax.servlet.RequestDispatcher;
@@ -56,17 +59,21 @@ public class Log4jUtilityServletTest {
 
     {
         try {
+            System.out.println("init-block  load " + ReloadAuthorization.class.getName());
             target = Class.forName(ReloadAuthorization.class.getName());
+            System.out.println("init-block   load " + ReloadAuthorization.class.getName());
         } catch (ClassNotFoundException e) {
+            System.out.println("error on init-block  on load " + ReloadAuthorization.class.getName());
             e.printStackTrace();
         }
     }
 
-    ReloadAuthorization realAuthorization = mock(ReloadAuthorization.class);
+//    ReloadAuthorization realAuthorization = mock(ReloadAuthorization.class);
+    ReloadAuthorization realAuthorization = new DefaultLog4jUtilityAuthorization();
 
     @Before
     public void init() throws ServletException {
-        reset(realAuthorization, mockLog4jUtility, mockServletConfig, ctx, mockSession, reqMock, respMock);
+        reset(/*realAuthorization, */mockLog4jUtility, mockServletConfig, ctx, mockSession, reqMock, respMock);
 
         when(mockServletConfig.getServletContext()).thenReturn(ctx);
 
@@ -80,8 +87,9 @@ public class Log4jUtilityServletTest {
                 .thenReturn(Log4jUtility.LOG4J_UTILITY_JSP_LOCATION_ATTR_NAME + ".test");
 
 
+//        MockCreationSettings mockClassName = Mockito.mockingDetails(realAuthorization).getMockCreationSettings();
         when(ctx.getInitParameter(Log4jUtility.LOG4J_UTILITY_AUTH_ATTR_NAME))
-                .thenReturn(realAuthorization.getClass().getSimpleName());
+                .thenReturn(realAuthorization.getClass().getName());
 
 
         when(reqMock.getSession()).thenReturn(mockSession);
@@ -94,7 +102,7 @@ public class Log4jUtilityServletTest {
 
     @After
     public void validate() {
-//        validateMockitoUsage();
+        validateMockitoUsage();
     }
 
     @Test
