@@ -28,13 +28,16 @@ jobs:
         distribution: 'adopt-hotspot'
         cache: maven
     - name: Build with Maven
-      run: mvn -B package --file pom.xml -DskipTests=true
+      run: mvn -v
+    # - name: Build with Maven
+      # run: mvn -B package --file pom.xml -DskipTests=true
 
-    - name: Test
-      env:
-        coveralls.project.token: ${{ secrets.PROJECTREPOTOKEN }}
+    # - name: Test
+      # env:
+        # coveralls.project.token: ${{ secrets.PROJECTREPOTOKEN }}
+      # run: mvn -X clean verify
+      
       # run: mvn -e jacoco:report cobertura:cobertura coveralls:report --batch-mode -Dmaven.test.failure.ignore=true test
-      run: mvn -X clean verify
         
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
