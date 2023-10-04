@@ -198,7 +198,7 @@ public class Log4jUtilityControllerTest {
 
         when(mockReloadAuthorization.authorize(mockHttpSession)).thenReturn(true);
         try {
-            final String result = log4jUtilityController.log4jFindClass("Log4jUtilityControllerTest", mockHttpSession);
+            final String result = log4jUtilityController.log4jFindClass("Log4jUtility", mockHttpSession);
 
             log.debug("classes found:" + result);
 
