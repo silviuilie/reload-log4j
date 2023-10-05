@@ -12,7 +12,7 @@ log4j 1.2.x utility
 why  
 =
 
-if you need to change Log4j 1.2.x level/priority using a simple UI, while the your webapp is running
+runtime change Log4j 1.2.x level/priority using a simple UI 
  
 
 use it as a Servlet
