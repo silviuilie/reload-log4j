@@ -194,7 +194,7 @@ public class Log4jUtilityControllerTest   {
 
     }
 
-    @Test @Ignore
+    @Test
     public void log4jFindClass() {
 
         when(mockReloadAuthorization.authorize(mockHttpSession)).thenReturn(true);

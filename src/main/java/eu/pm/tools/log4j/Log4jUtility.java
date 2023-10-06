@@ -23,6 +23,7 @@ import org.springframework.util.CollectionUtils;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.*;
+import java.util.function.Predicate;
 
 import static org.apache.commons.lang.StringUtils.*;
 import static org.reflections.util.ClasspathHelper.*;
@@ -225,39 +226,15 @@ public class Log4jUtility {
      */
     private List<String> findClasspathClasses(String classNameFragment) {
         if (reflections == null) {
-              reflections = new Reflections(
-                    new ConfigurationBuilder()
-                            .forPackage(applicationContext.getPackageName())
-                            .filterInputsBy(new FilterBuilder().includePackage(applicationContext.getPackageName()))
+            reflections = new Reflections(
+                new ConfigurationBuilder()
+                    .forPackage(applicationContext.getPackageName())
+                    .filterInputsBy(new FilterBuilder().includePackage(applicationContext.getPackageName()))
             );
         }
-        // pre reflections 0.10
-        if (false && reflections == null) reflections = new Reflections(
-                new ConfigurationBuilder()
-                        .setScanners(new SubTypesScanner(false), new ResourcesScanner())
-                        .setUrls(
-                                forClassLoader(
-                                        contextClassLoader(),
-                                        staticClassLoader()
-                                )
-                        )
-                        .filterInputsBy(new FilterBuilder().includePackage(
-                                applicationContext.getPackageName()
-                        ))
-        );
 
-
-        Set<String> allSubTypes = reflections.getAll(Scanners.SubTypes);
-        System.out.println("allTypes = " + allSubTypes);
-        Set<Class<?>> classes = reflections.getSubTypesOf(Object.class);
-        System.out.println("\n\nclasses = " + classes);
-        List<String> classNames = new ArrayList<String>(20);
-        for (Class classz : classes) {
-            if (containsIgnoreCase(classz.getName(), classNameFragment)) {
-                classNames.add(classz.getName());
-            }
-        }
-
+        List<String> classNames = new ArrayList<>(reflections.getAll(Scanners.SubTypes));
+        classNames.stream().filter(s -> s.equalsIgnoreCase(classNameFragment));
 
         return classNames;
     }
