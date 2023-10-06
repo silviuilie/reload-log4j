@@ -33,7 +33,7 @@ import static org.mockito.Mockito.*;
  *
  * @author Silviu Ilie
  */
-public class Log4jUtilityControllerTest extends SearchableClassName {
+public class Log4jUtilityControllerTest   {
 
     private Log4jUtilityController log4jUtilityController = new Log4jUtilityController();
     private HttpSession mockHttpSession = mock(HttpSession.class);
