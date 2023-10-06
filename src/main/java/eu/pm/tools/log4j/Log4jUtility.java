@@ -13,6 +13,7 @@ import org.apache.log4j.Level;
 //import org.codehaus.jackson.map.ObjectMapper;
 import org.reflections.Reflections;
 import org.reflections.scanners.ResourcesScanner;
+import org.reflections.scanners.Scanners;
 import org.reflections.scanners.SubTypesScanner;
 import org.reflections.util.ConfigurationBuilder;
 import org.reflections.util.FilterBuilder;
@@ -25,7 +26,6 @@ import java.util.*;
 
 import static org.apache.commons.lang.StringUtils.*;
 import static org.reflections.util.ClasspathHelper.*;
-import static org.reflections.util.FilterBuilder.prefix;
 
 /**
  * Created by silviu
@@ -182,6 +182,7 @@ public class Log4jUtility {
             }
 
         } catch (LogConfigurationException e) {
+            e.printStackTrace();
             log.error(e);
             return new Log4jConfigResetResponse(
                     "failed to get Logger for log4j for class " + target + " : " + e.getMessage(),
@@ -223,23 +224,31 @@ public class Log4jUtility {
      * @return {@code List<String>} classes that match the searched string.
      */
     private List<String> findClasspathClasses(String classNameFragment) {
-        if (reflections == null) reflections = new Reflections(
+        if (reflections == null) {
+              reflections = new Reflections(
+                    new ConfigurationBuilder()
+                            .forPackage(applicationContext.getPackageName())
+                            .filterInputsBy(new FilterBuilder().includePackage(applicationContext.getPackageName()))
+            );
+        }
+        // pre reflections 0.10
+        if (false && reflections == null) reflections = new Reflections(
                 new ConfigurationBuilder()
                         .setScanners(new SubTypesScanner(false), new ResourcesScanner())
                         .setUrls(
-                            forClassLoader(
-                                contextClassLoader(),
-                                staticClassLoader()
-                            )
+                                forClassLoader(
+                                        contextClassLoader(),
+                                        staticClassLoader()
+                                )
                         )
-                        .filterInputsBy(new FilterBuilder().include(
-                            prefix(applicationContext.getPackageName())
+                        .filterInputsBy(new FilterBuilder().includePackage(
+                                applicationContext.getPackageName()
                         ))
         );
 
 
-        Set<String> allTypes = reflections.getAllTypes();
-        System.out.println("allTypes = " + allTypes);
+        Set<String> allSubTypes = reflections.getAll(Scanners.SubTypes);
+        System.out.println("allTypes = " + allSubTypes);
         Set<Class<?>> classes = reflections.getSubTypesOf(Object.class);
         System.out.println("\n\nclasses = " + classes);
         List<String> classNames = new ArrayList<String>(20);
