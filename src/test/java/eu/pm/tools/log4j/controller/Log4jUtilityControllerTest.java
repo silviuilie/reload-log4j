@@ -33,7 +33,7 @@ import static org.mockito.Mockito.*;
  *
  * @author Silviu Ilie
  */
-public class Log4jUtilityControllerTest {
+public class Log4jUtilityControllerTest extends SearchableClassName {
 
     private Log4jUtilityController log4jUtilityController = new Log4jUtilityController();
     private HttpSession mockHttpSession = mock(HttpSession.class);
@@ -55,7 +55,7 @@ public class Log4jUtilityControllerTest {
      * succeeds in
      * ¶
      */
-    @Ignore @Test public void setPriority() {
+    @Test public void setPriority() {
         try {
 
             when(mockReloadAuthorization.authorize(mockHttpSession)).thenReturn(true);

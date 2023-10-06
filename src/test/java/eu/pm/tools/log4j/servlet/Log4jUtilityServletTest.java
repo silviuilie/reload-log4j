@@ -59,11 +59,8 @@ public class Log4jUtilityServletTest {
 
     {
         try {
-            System.out.println("init-block  load " + ReloadAuthorization.class.getName());
             target = Class.forName(ReloadAuthorization.class.getName());
-            System.out.println("init-block   load " + ReloadAuthorization.class.getName());
         } catch (ClassNotFoundException e) {
-            System.out.println("error on init-block  on load " + ReloadAuthorization.class.getName());
             e.printStackTrace();
         }
     }

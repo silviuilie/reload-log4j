@@ -25,6 +25,7 @@ import java.util.*;
 
 import static org.apache.commons.lang.StringUtils.*;
 import static org.reflections.util.ClasspathHelper.*;
+import static org.reflections.util.FilterBuilder.prefix;
 
 /**
  * Created by silviu
@@ -165,8 +166,10 @@ public class Log4jUtility {
 
         Log targetLogger = null;
         try {
+            System.out.println(" b targetLogger = " + targetLogger);
             targetLogger = LogFactory.getLog(target);
             // set initial log4j priority
+            System.out.println(" a targetLogger = " + targetLogger);
             if (classInitialPriority.get(target) == null) {
                 try {
                     setInitialPriority(target, targetLogger);
@@ -220,23 +223,25 @@ public class Log4jUtility {
      * @return {@code List<String>} classes that match the searched string.
      */
     private List<String> findClasspathClasses(String classNameFragment) {
-
         if (reflections == null) reflections = new Reflections(
                 new ConfigurationBuilder()
                         .setScanners(new SubTypesScanner(false), new ResourcesScanner())
                         .setUrls(
-                                forClassLoader(
-                                        contextClassLoader(),
-                                        staticClassLoader()
-                                )
+                            forClassLoader(
+                                contextClassLoader(),
+                                staticClassLoader()
+                            )
                         )
                         .filterInputsBy(new FilterBuilder().include(
-                                FilterBuilder.prefix(applicationContext.getPackageName())
+                            prefix(applicationContext.getPackageName())
                         ))
         );
 
 
+        Set<String> allTypes = reflections.getAllTypes();
+        System.out.println("allTypes = " + allTypes);
         Set<Class<?>> classes = reflections.getSubTypesOf(Object.class);
+        System.out.println("\n\nclasses = " + classes);
         List<String> classNames = new ArrayList<String>(20);
         for (Class classz : classes) {
             if (containsIgnoreCase(classz.getName(), classNameFragment)) {
