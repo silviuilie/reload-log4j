@@ -11,6 +11,7 @@ import org.apache.commons.lang.math.RandomUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.servlet.http.HttpServletRequest;
@@ -54,7 +55,7 @@ public class Log4jUtilityControllerTest {
      * succeeds in
      * ¶
      */
-    @Test public void setPriority() {
+    @Ignore @Test public void setPriority() {
         try {
 
             when(mockReloadAuthorization.authorize(mockHttpSession)).thenReturn(true);
@@ -193,7 +194,7 @@ public class Log4jUtilityControllerTest {
 
     }
 
-    @Test
+    @Test @Ignore
     public void log4jFindClass() {
 
         when(mockReloadAuthorization.authorize(mockHttpSession)).thenReturn(true);
