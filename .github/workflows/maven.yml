@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: dragonwell 8
+name: temurin 8
 
 on:
   push:
