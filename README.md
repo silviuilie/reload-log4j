@@ -7,7 +7,7 @@ log4j 1.2.x utility
 
  
 
- ~~[![Build Status](https://travis-ci.org/silviuilie/reload-log4j.svg?branch=master)](https://travis-ci.org/silviuilie/reload-log4j)~~
+ ~~2do: drop travis [![Build Status](https://travis-ci.org/silviuilie/reload-log4j.svg?branch=master)](https://travis-ci.org/silviuilie/reload-log4j)~~
  
 why  
 =
