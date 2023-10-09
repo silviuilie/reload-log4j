@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI with Maven) default jdk 8
+name: JavaCIMaven - default jdk 8
 
 on:
   push:
