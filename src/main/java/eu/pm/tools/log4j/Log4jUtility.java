@@ -24,6 +24,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.*;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import static org.apache.commons.lang.StringUtils.*;
 import static org.reflections.util.ClasspathHelper.*;
@@ -167,10 +168,8 @@ public class Log4jUtility {
 
         Log targetLogger = null;
         try {
-            System.out.println(" b targetLogger = " + targetLogger);
             targetLogger = LogFactory.getLog(target);
             // set initial log4j priority
-            System.out.println(" a targetLogger = " + targetLogger);
             if (classInitialPriority.get(target) == null) {
                 try {
                     setInitialPriority(target, targetLogger);
@@ -227,16 +226,31 @@ public class Log4jUtility {
     private List<String> findClasspathClasses(String classNameFragment) {
         if (reflections == null) {
             reflections = new Reflections(
-                new ConfigurationBuilder()
-                    .forPackage(applicationContext.getPackageName())
-                    .filterInputsBy(new FilterBuilder().includePackage(applicationContext.getPackageName()))
+                    new ConfigurationBuilder()
+                            .forPackage(applicationContext.getPackageName())
+                            .filterInputsBy(new FilterBuilder().includePackage(applicationContext.getPackageName()))
             );
         }
 
-        List<String> classNames = new ArrayList<>(reflections.getAll(Scanners.SubTypes));
-        classNames.stream().filter(s -> s.equalsIgnoreCase(classNameFragment));
 
-        return classNames;
+        System.out.println(" x classNameFragment = " + classNameFragment);
+        List<String> classNames = new ArrayList<>(reflections.getAll(Scanners.SubTypes));
+        System.out.println(" x classNames = " + classNames);
+        List<String> found =  classNames.stream().filter(new Predicate<String>() {
+            @Override
+            public boolean test(String s) {
+
+
+                System.out.println("xx class in classpath = " + s);
+                System.out.println("xx classNameFragment  = " + classNameFragment);
+
+                return s.endsWith(classNameFragment);
+            }
+        }).collect(Collectors.toList());
+
+        System.out.println("\n\n ------ \n found = " + found);
+
+        return found;
     }
 
 

@@ -60,7 +60,7 @@ public class Log4jUtilityControllerTest   {
 
             when(mockReloadAuthorization.authorize(mockHttpSession)).thenReturn(true);
 
-            final String result = log4jUtilityController.setPriority("Log4jUtilityControllerTest", "DEBUG", mockHttpSession);
+            final String result = log4jUtilityController.setPriority("Log4jUtility", "DEBUG", mockHttpSession);
             assertTrue(isNotEmpty(result));
             System.out.println("result = " + result);
 
@@ -206,7 +206,7 @@ public class Log4jUtilityControllerTest   {
             verify(mockReloadAuthorization).authorize(mockHttpSession);
 
             assertEquals(
-                    "eu.pm.tools.log4j.controller.Log4jUtilityControllerTest",
+                    "eu.pm.tools.log4j.Log4jUtility",
                     result.replaceAll("\\[", "").replaceAll("]", "").replaceAll("\"", "")
             );
         } catch (IOException e) {
