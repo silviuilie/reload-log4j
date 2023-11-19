@@ -8,7 +8,7 @@ log4j 1.2.x utility
 
 
  
- drop travis  after account deletion [![Build Status](https://travis-ci.org/silviuilie/reload-log4j.svg?branch=master)](https://travis-ci.org/silviuilie/reload-log4j)
+ drop travis  after account deletion : [![Build Status](https://travis-ci.org/silviuilie/reload-log4j.svg?branch=master)](https://travis-ci.org/silviuilie/reload-log4j)
  
 why  
 =
