@@ -29,7 +29,7 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-      # test (with public repo works (milliseconds not a number,more debug))
+      # test (with public repo works (milliseconds not a number,more debug, new release))
     - name: publish coverage
       uses: silviuilie/commit-jacoco-total-to-readme@0.0.1
       with:
