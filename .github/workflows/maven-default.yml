@@ -33,7 +33,7 @@ jobs:
     - name: publish coverage
       uses: silviuilie/commit-jacoco-total-to-readme@0.0.0
       with:
-        fileName: 'README.md'
+        readmeFileName: 'README.md'
         type : 'svg'
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
