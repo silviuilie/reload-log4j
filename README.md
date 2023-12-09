@@ -11,6 +11,7 @@ log4j 1.2.x utility
  --> 
 
 new coverage test : [![Coverage Status](svg)]
+new coverage test : [![Coverage](./doc/badges/coverage.svg)]
 
  <!--
  drop travis  after account deletion : [![Build Status](https://travis-ci.org/silviuilie/reload-log4j.svg?branch=master)](https://travis-ci.org/silviuilie/reload-log4j)
