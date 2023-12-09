@@ -10,7 +10,6 @@ log4j 1.2.x utility
  [![Coverage Status](https://coveralls.io/repos/silviuilie/reload-log4j/badge.png?branch=master)](https://coveralls.io/r/silviuilie/reload-log4j?branch=master)
  --> 
 
-new coverage test : [![Coverage Status](svg)]
 new coverage test : [![Coverage](./doc/badges/coverage.svg)]
 
  <!--
