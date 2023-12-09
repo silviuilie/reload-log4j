@@ -10,7 +10,7 @@ log4j 1.2.x utility
  [![Coverage Status](https://coveralls.io/repos/silviuilie/reload-log4j/badge.png?branch=master)](https://coveralls.io/r/silviuilie/reload-log4j?branch=master)
  --> 
 
-new coverage test : [![Coverage](./doc/badges/coverage.svg)]
+new coverage test : [![Coverage Status](./doc/badges/coverage.svg)]
 
  <!--
  drop travis  after account deletion : [![Build Status](https://travis-ci.org/silviuilie/reload-log4j.svg?branch=master)](https://travis-ci.org/silviuilie/reload-log4j)
