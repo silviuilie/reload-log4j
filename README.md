@@ -6,12 +6,12 @@ log4j 1.2.x utility
  [![Dependency Status](https://www.versioneye.com/user/projects/54436bde53acfab90700001c/badge.svg?style=flat)](https://www.versioneye.com/user/projects/54436bde53acfab90700001c)
 
 
+
+   test coverage action: ![Coverage Status](./doc/badges/coverage.svg)
+
  <!-- old value
  [![Coverage Status](https://coveralls.io/repos/silviuilie/reload-log4j/badge.png?branch=master)](https://coveralls.io/r/silviuilie/reload-log4j?branch=master)
  --> 
-
-
-   test coverage action: ![Coverage Status](./doc/badges/coverage.svg)
 
  <!--
  drop travis  after account deletion : [![Build Status](https://travis-ci.org/silviuilie/reload-log4j.svg?branch=master)](https://travis-ci.org/silviuilie/reload-log4j)
