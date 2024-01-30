@@ -31,7 +31,7 @@ jobs:
       run: mvn -B package --file pom.xml
       # test (with public repo works (more debug, new release)).
     - name: publish coverage
-      uses: silviuilie/commit-jacoco-total-to-readme@0.0.2
+      uses: silviuilie/commit-jacoco-total-to-readme@0.0.1
       with:
         readmeFileName: 'README.md'
         type : 'svg'
