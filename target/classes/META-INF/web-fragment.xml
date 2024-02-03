@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-fragment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+              xmlns:webfragment="http://java.sun.com/xml/ns/javaee/web-fragment_3_0.xsd"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-fragment_3_0.xsd"
+              id="log4jLevelReload" version="3.0">
+
+    <display-name>log4jLevelReload</display-name>
+    <name>log4jLevelReload</name>
+    <servlet>
+        <servlet-name>log4jLevelReload</servlet-name>
+        <servlet-class>eu.pm.tools.log4j.servlet.Log4jUtilityServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>log4jLevelReload</servlet-name>
+        <url-pattern>*.log4j</url-pattern>
+    </servlet-mapping>
+
+</web-fragment>
