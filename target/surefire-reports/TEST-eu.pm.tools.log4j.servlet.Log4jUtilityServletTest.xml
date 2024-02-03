@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="6" failures="0" name="eu.pm.tools.log4j.servlet.Log4jUtilityServletTest" time="0.272" errors="0" skipped="0">
+<testsuite tests="6" failures="0" name="eu.pm.tools.log4j.servlet.Log4jUtilityServletTest" time="0.228" errors="0" skipped="0">
   <properties>
     <property name="jansi.mode" value="strip"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -61,10 +61,10 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="eu.pm.tools.log4j.servlet.Log4jUtilityServletTest" name="doGetNotAuthorized" time="0.007"/>
-  <testcase classname="eu.pm.tools.log4j.servlet.Log4jUtilityServletTest" name="doPostReloadClassPriority" time="0.119"/>
-  <testcase classname="eu.pm.tools.log4j.servlet.Log4jUtilityServletTest" name="doGetAuthorized" time="0.013"/>
+  <testcase classname="eu.pm.tools.log4j.servlet.Log4jUtilityServletTest" name="doGetNotAuthorized" time="0.006"/>
+  <testcase classname="eu.pm.tools.log4j.servlet.Log4jUtilityServletTest" name="doPostReloadClassPriority" time="0.107"/>
+  <testcase classname="eu.pm.tools.log4j.servlet.Log4jUtilityServletTest" name="doGetAuthorized" time="0.012"/>
   <testcase classname="eu.pm.tools.log4j.servlet.Log4jUtilityServletTest" name="doPostEmpty" time="0.002"/>
-  <testcase classname="eu.pm.tools.log4j.servlet.Log4jUtilityServletTest" name="doPostFindClass" time="0.005"/>
-  <testcase classname="eu.pm.tools.log4j.servlet.Log4jUtilityServletTest" name="doPostReloadResetPriority" time="0.005"/>
+  <testcase classname="eu.pm.tools.log4j.servlet.Log4jUtilityServletTest" name="doPostFindClass" time="0.004"/>
+  <testcase classname="eu.pm.tools.log4j.servlet.Log4jUtilityServletTest" name="doPostReloadResetPriority" time="0.004"/>
 </testsuite>
