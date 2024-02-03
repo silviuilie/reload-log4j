@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="8" failures="0" name="eu.pm.tools.log4j.controller.Log4jUtilityControllerTest" time="2.139" errors="0" skipped="0">
+<testsuite tests="8" failures="0" name="eu.pm.tools.log4j.controller.Log4jUtilityControllerTest" time="1.372" errors="0" skipped="0">
   <properties>
     <property name="jansi.mode" value="strip"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -61,12 +61,12 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="eu.pm.tools.log4j.controller.Log4jUtilityControllerTest" name="resetPriorityNotAuthorized" time="0.034"/>
-  <testcase classname="eu.pm.tools.log4j.controller.Log4jUtilityControllerTest" name="log4jFindClass" time="0.217"/>
+  <testcase classname="eu.pm.tools.log4j.controller.Log4jUtilityControllerTest" name="resetPriorityNotAuthorized" time="0.032"/>
+  <testcase classname="eu.pm.tools.log4j.controller.Log4jUtilityControllerTest" name="log4jFindClass" time="0.183"/>
   <testcase classname="eu.pm.tools.log4j.controller.Log4jUtilityControllerTest" name="log4jChange" time="0.001"/>
-  <testcase classname="eu.pm.tools.log4j.controller.Log4jUtilityControllerTest" name="log4jChangeNotAuthorized" time="0"/>
-  <testcase classname="eu.pm.tools.log4j.controller.Log4jUtilityControllerTest" name="setPriority" time="0.109"/>
+  <testcase classname="eu.pm.tools.log4j.controller.Log4jUtilityControllerTest" name="log4jChangeNotAuthorized" time="0.007"/>
+  <testcase classname="eu.pm.tools.log4j.controller.Log4jUtilityControllerTest" name="setPriority" time="0.077"/>
   <testcase classname="eu.pm.tools.log4j.controller.Log4jUtilityControllerTest" name="log4jFindClassNotAuthorized" time="0.001"/>
-  <testcase classname="eu.pm.tools.log4j.controller.Log4jUtilityControllerTest" name="resetPriority" time="0.024"/>
-  <testcase classname="eu.pm.tools.log4j.controller.Log4jUtilityControllerTest" name="resetPriorityForNeverChangedTarget" time="0.003"/>
+  <testcase classname="eu.pm.tools.log4j.controller.Log4jUtilityControllerTest" name="resetPriority" time="0.014"/>
+  <testcase classname="eu.pm.tools.log4j.controller.Log4jUtilityControllerTest" name="resetPriorityForNeverChangedTarget" time="0.002"/>
 </testsuite>
