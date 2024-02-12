@@ -3,10 +3,7 @@ log4j 1.2.x reloader
 log4j 1.2.x utility 
                   
  [![java/maven build](https://github.com/silviuilie/reload-log4j/actions/workflows/maven-default.yml/badge.svg)](https://github.com/silviuilie/reload-log4j/actions/workflows/maven-default.yml)
- [![Dependency Status](https://www.versioneye.com/user/projects/54436bde53acfab90700001c/badge.svg?style=flat)](https://www.versioneye.com/user/projects/54436bde53acfab90700001c)
-
-
-test commit-jacoco-total-to-readme action: ![Coverage Status](./doc/badges/coverage.svg)
+ [![Dependency Status](https://www.versioneye.com/user/projects/54436bde53acfab90700001c/badge.svg?style=flat)](https://www.versioneye.com/user/projects/54436bde53acfab90700001c) <!--test commit-jacoco-total-to-readme action:--> ![Coverage Status](./doc/badges/coverage.svg)
 
 
  <!-- old value
