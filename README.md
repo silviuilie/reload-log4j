@@ -17,7 +17,7 @@ log4j 1.2.x utility
 why  
 =
 
-change Log4j 1.2.x level/priority  
+change Log4j 1.2.x level/priority at runtime using basic UI
  
 
 use it as a Servlet
