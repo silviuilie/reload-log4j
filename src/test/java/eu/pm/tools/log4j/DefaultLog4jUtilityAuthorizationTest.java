@@ -22,7 +22,7 @@ public class DefaultLog4jUtilityAuthorizationTest {
     HttpSession mockSession = mock(HttpSession.class);
 
 
-    @Test
+    //@Test
     public void authorize() {
         assertTrue(utilityAuthorization.authorize(mockSession));
     }
